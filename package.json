@@ -1,0 +1,34 @@
+{
+  "name": "cli-common",
+  "version": "0.0.1",
+  "description": "common utils for cli",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsnd --respawn index.ts"
+  },
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mistlog/cli-common"
+  },
+  "homepage": "https://github.com/mistlog/cli-common",
+  "author": "mistlog",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/gulp": "^4.0.9",
+    "@types/gulp-if": "0.0.34",
+    "@types/gulp-rename": "^2.0.1",
+    "@types/node": "^16.11.6",
+    "ts-node-dev": "^1.1.8"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-if": "^3.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-transform": "^3.0.5"
+  }
+}
