@@ -1,8 +1,7 @@
-import { watch, src, dest } from "gulp";
+import { watch, src as gulpSrc, dest as gulpDest } from "gulp";
 import transform from "gulp-transform";
 import rename from "gulp-rename";
 import gulpif from "gulp-if";
-import path from "path";
 
 export interface IDevConfig {
   transform: (path: string, content: string) => string
@@ -21,11 +20,15 @@ export function dev(src: string, dest: string, config: IDevConfig) {
   watcher.on("add", onTransform);
 }
 
-function transfromFile(inputPath: string, baseDir: string, outDir: string, config: IDevConfig) {
-  const filePath = path.resolve(inputPath);
+export function build(src: string, dest: string, config: IDevConfig) {
+  const baseDir = config?.baseDir || src.split("/")[0];
+  transfromFile(src, baseDir, dest, config);
+}
+
+function transfromFile(src: string, baseDir: string, dest: string, config: IDevConfig) {
   // add baseDir to keep directory structure
-  src(filePath, { base: baseDir })
-    .pipe(gulpif(Boolean(config.transform), transform("utf8", code => config.transform(filePath, code))))
+  gulpSrc(src, { base: baseDir })
+    .pipe(gulpif(Boolean(config.transform), transform("utf8", (code, file) => config.transform(file.path, code))))
     .pipe(gulpif(Boolean(config?.rename), rename({ extname: config?.rename?.extension })))
-    .pipe(dest(outDir));
+    .pipe(gulpDest(dest));
 }

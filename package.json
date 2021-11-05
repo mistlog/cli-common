@@ -4,7 +4,8 @@
   "description": "common utils for cli",
   "scripts": {
     "build": "del-cli ./build && tsc",
-    "dev": "tsnd --respawn ./test/dev.ts"
+    "test:dev": "tsnd --respawn ./test/dev.ts",
+    "test:build": "tsnd ./test/build.ts"
   },
   "main": "build/index.js",
   "types": "build/index.d.ts",
