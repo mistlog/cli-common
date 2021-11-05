@@ -1,4 +1,4 @@
-import { dev } from "./index";
+import { dev } from "../src";
 
 // example
 dev("temp/draft/**/*.{ts,tsx}", "temp/dest", {
