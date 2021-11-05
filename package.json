@@ -5,7 +5,8 @@
   "scripts": {
     "build": "del-cli ./build && tsc",
     "test:dev": "tsnd --respawn ./test/dev.ts",
-    "test:build": "tsnd ./test/build.ts"
+    "test:build": "tsnd ./test/build.ts",
+    "test:clean": "tsnd ./test/clean.ts"
   },
   "main": "build/index.js",
   "types": "build/index.d.ts",

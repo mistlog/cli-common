@@ -2,6 +2,7 @@ import { watch, src as gulpSrc, dest as gulpDest } from "gulp";
 import transform from "gulp-transform";
 import rename from "gulp-rename";
 import gulpif from "gulp-if";
+import fs from "fs-extra";
 
 export interface IDevConfig {
   transform: (path: string, content: string) => string
@@ -23,6 +24,10 @@ export function dev(src: string, dest: string, config: IDevConfig) {
 export function build(src: string, dest: string, config: IDevConfig) {
   const baseDir = config?.baseDir || src.split("/")[0];
   transfromFile(src, baseDir, dest, config);
+}
+
+export function clean(dir: string) {
+  fs.removeSync(dir);
 }
 
 function transfromFile(src: string, baseDir: string, dest: string, config: IDevConfig) {
