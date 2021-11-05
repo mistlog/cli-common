@@ -1,6 +1,6 @@
 {
   "name": "cli-common",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "common utils for cli",
   "scripts": {
     "build": "del-cli ./build && tsc",
