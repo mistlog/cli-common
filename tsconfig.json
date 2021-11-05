@@ -5,9 +5,9 @@
         "moduleResolution": "node",
         "esModuleInterop": true,
         "outDir": "./build",
-        "declaration": false,
+        "declaration": true,
     },
     "include": [
-        "./src"
+        "src"
     ]
 }
